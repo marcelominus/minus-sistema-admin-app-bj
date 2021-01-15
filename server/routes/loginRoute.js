@@ -9,7 +9,7 @@ const loginController = require('../controller/loginController');
 //=====================================
 module.exports = () => {
     router.get('/login', loginController.loginAdmin);
-
+    
     return router;
 }
 
