@@ -8,7 +8,7 @@ const loginController = require('../controller/loginController');
 
 //=====================================
 module.exports = () => {
-    router.post('/login', loginController.loginAdmin);
+    router.get('/login', loginController.loginAdmin);
     
     return router;
 }
