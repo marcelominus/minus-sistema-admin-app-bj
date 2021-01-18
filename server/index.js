@@ -9,7 +9,7 @@ const db = require('./config/db/dbMysql');
 
 ///===================================================
 //Verificamos las conexion con la base de datos
-db.authenticate()
+db.sync()
     .then(() => console.log("CONEXION CORRECTA BASE DE DATOS FUNCIONANDO"))
     .catch((error) => console.log(error));
 
