@@ -10,17 +10,23 @@ const bodyparser = require('body-parser');
 const cors = require('cors');
 //Importamos las RUTAS
 const loginRoute = require('./routes/loginRoute');
+const networkRoute = require('./routes/networkRoute');
+
+
+// var multer = require('multer');
+// var forms = multer();
+
 //=============================================
 //Hablitamos el uso de datos en JSON
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended : true}));
-
+//app.use(forms.array()); 
 //Habilitamos el uso de CORS
 app.use(cors());
 
 //Creamos la direccion de imagen
 app.use( '/' , loginRoute());
-
+app.use('/network', networkRoute());
 //Exportamos el MODULO DE APP
 module.exports = app;
 
