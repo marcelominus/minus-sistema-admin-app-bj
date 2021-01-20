@@ -67,12 +67,11 @@ exports.updateLoginDate = async(req, res) => {
     //
     const idUsuario = req.usuario.user;
     try {
-        const {nombre, usuario, avatar} = req.body;
+        const {nombre, usuario} = req.body;
         //
         const actualizarLogin = await Login.update({
             nombre      :nombre,
             usuario     :usuario,
-            avatar      :avatar,
         },{
             where       : {
                 idlogin : idUsuario
@@ -88,7 +87,7 @@ exports.updateLoginDate = async(req, res) => {
         res.json({ response : 'error'})
     }
 }
-exports.updateLoginPassword = async() => {
+exports.updateLoginPassword = async(req, res) => {
     //
     const idUsuario = req.usuario.user;
     try {
@@ -112,9 +111,9 @@ exports.updateLoginPassword = async() => {
 
 exports.pruebalogin = async(req, res) => {
     try {
-        // console.log(req);
-        res.json({ response : 'req.unico'});
-        // res.json({ response : 'MARCELO'})
+        const formData = req.body;
+        console.log('form data', formData);
+        res.sendStatus(200);
     } catch (error) {
         console.log(error)
         res.json({ response : 'error'})

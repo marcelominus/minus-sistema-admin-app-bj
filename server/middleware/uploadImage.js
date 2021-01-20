@@ -9,7 +9,6 @@ module.exports = function (req, res, next) {
     const configuracionMulter = {
         storage : fileStorage = multer.diskStorage({
             destination: (req, file, cb) => {
-                console.log(req.body.texto);
                 cb(null, __dirname + '\\..\\public');
             },
             filename : (req, file, cb) => {
@@ -25,10 +24,9 @@ module.exports = function (req, res, next) {
             }
         }
     }
-    const uploadFile = multer(configuracionMulter).array('imagen', 'texto');
+    const uploadFile = multer(configuracionMulter).single('imagen');
     uploadFile(req, res, function(error){
         if(error){
-            console.log(req.body);
             res.json({ response : 'error'})
         }
         next();

@@ -9,6 +9,8 @@ const auth = require('../middleware/authToken');
 
 const post = require('../middleware/postData');
 const upload = require('../middleware/uploadImage');
+
+
 //=====================================
 module.exports = () => {
     router.post('/login', loginController.loginAdmin);

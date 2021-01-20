@@ -13,17 +13,19 @@ const loginRoute = require('./routes/loginRoute');
 const networkRoute = require('./routes/networkRoute');
 
 
-// var multer = require('multer');
-// var forms = multer();
+var multer = require('multer');
+var forms = multer();
 
 //=============================================
 //Hablitamos el uso de datos en JSON
+app.use(express.json());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended : true}));
-//app.use(forms.array()); 
+// app.use(forms.array()); 
 //Habilitamos el uso de CORS
 app.use(cors());
-
+//
+app.use("/state", express.static("public"));
 //Creamos la direccion de imagen
 app.use( '/' , loginRoute());
 app.use('/network', networkRoute());
