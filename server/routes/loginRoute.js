@@ -17,7 +17,8 @@ module.exports = () => {
     router.post('/read-login', auth, loginController.readLogin);
     router.post('/update-login-date', auth, loginController.updateLoginDate);
     router.post('/update-login-pass', auth, loginController.updateLoginPassword);
-    //sss
+    router.post('/update-login-img', upload, loginController.updateLoginImg )
+
     router.post('/prueba', upload, loginController.pruebalogin);
     return router;
 }

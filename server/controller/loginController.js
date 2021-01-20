@@ -109,6 +109,15 @@ exports.updateLoginPassword = async(req, res) => {
     }
 }
 
+exports.updateLoginImg = async(req, res) => {
+    try {
+        console.log(req.img);
+        res.json({ response : 'success'});
+    } catch (error) {
+        res.json({ response : 'error'})
+    }
+}
+
 exports.pruebalogin = async(req, res) => {
     try {
         const formData = req.body;

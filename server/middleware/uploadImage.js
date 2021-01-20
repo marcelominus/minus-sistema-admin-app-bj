@@ -13,7 +13,9 @@ module.exports = function (req, res, next) {
             },
             filename : (req, file, cb) => {
                 const extension = file.mimetype.split('/')[1];
-                cb(null, `${shortid.generate()}.${extension}`);
+                const nombreImg = `${shortid.generate()}.${extension}`;
+                req.img = nombreImg;
+                cb(null, nombreImg);
             }
         }),
         fileFilter(req, file, cb){
@@ -28,8 +30,9 @@ module.exports = function (req, res, next) {
     uploadFile(req, res, function(error){
         if(error){
             res.json({ response : 'error'})
+        }else{            
+            next();
         }
-        next();
     })
     
   } catch (error) {
