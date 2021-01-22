@@ -4,7 +4,8 @@ require('dotenv').config({ path : '../const.env'});
 const Login = require('../model/modelLogin');
 //Importamos los SERVICE 
 const getToken = require('../service/getToken');
-
+//Importamos las variables de constantes
+const constantes = require('../service/constants');
 
 //=================================================
 exports.loginAdmin = async(req, res) => {
@@ -50,7 +51,6 @@ exports.readLogin = async(req, res) => {
             },
             raw : true
         });
-        console.log(consultaLogin);
         if( consultaLogin === 0 ){
             res.json({ response : 'null'})
         }else{
@@ -110,21 +110,27 @@ exports.updateLoginPassword = async(req, res) => {
 }
 
 exports.updateLoginImg = async(req, res) => {
+    const idUsuario = req.usuario.user;
     try {
-        console.log(req.img);
-        res.json({ response : 'success'});
+        if(typeof req.img == 'undefined'){
+            res.json({ response : 'null'});
+        }else{
+            const directionUniqueUpdateAvatar = constantes.avatarNew + req.img;
+            const actualizarImagen = await Login.update({
+                avatar : directionUniqueUpdateAvatar
+            },{
+                where       : {
+                    idlogin : idUsuario
+                }
+            });
+            if( actualizarImagen){
+                res.json({ response : 'success'})
+            }else{
+                res.json({ response : 'fail'})
+            }
+        }
     } catch (error) {
         res.json({ response : 'error'})
     }
 }
 
-exports.pruebalogin = async(req, res) => {
-    try {
-        const formData = req.body;
-        console.log('form data', formData);
-        res.sendStatus(200);
-    } catch (error) {
-        console.log(error)
-        res.json({ response : 'error'})
-    }
-}

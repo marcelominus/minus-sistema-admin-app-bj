@@ -4,8 +4,9 @@ const Sequelize = require('sequelize');
 const db = require('../config/db/dbMysql');
 //Importamos las variables de entorno
 require('dotenv').config({ path : '../const.env'});
-const IP_SERVER = process.env.IP_SERVER;
-const PORT_SERVER = process.env.PORT_SERVER;
+//Importamos las constantes
+const constantes = require('../service/constants');
+
 ///Creamos el MODELO de la Tabla LOGIN
 const Login = db.define(
     'login',
@@ -16,17 +17,20 @@ const Login = db.define(
             autoIncrement : true
         },
         nombre : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+            defaultValue : 'MARSLNLAU'
         },
         usuario : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+            defaultValue : 'admin'
         },
         password : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+            defaultValue : '16112905'
         },
         avatar : {
             type : Sequelize.STRING,
-            defaultValue : `http://${IP_SERVER}:${PORT_SERVER}/state/defaultuser.jpg`
+            defaultValue : constantes.avatarDefault
         },
     }, {
         charset: 'utf8',

@@ -14,7 +14,6 @@ module.exports = function (req, res, next) {
             filename : (req, file, cb) => {
                 const extension = file.mimetype.split('/')[1];
                 const nombreImg = `${shortid.generate()}.${extension}`;
-                req.img = nombreImg;
                 cb(null, nombreImg);
             }
         }),
