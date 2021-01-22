@@ -1,7 +1,7 @@
 //Importamos FS
 const fs = require('fs');
 //Importamos el MODELLO
-const Login = require('../model/modelLogin');
+const Login = require('../../model/modelLogin');
 //===================================
 module.exports = async(req, res, next) => {
     try {
@@ -15,7 +15,9 @@ module.exports = async(req, res, next) => {
         })
         const direccion = consultaUsuario[0].avatar;
         const nameFile = direccion.split('/');
-        const deleteFile = await fs.unlinkSync(__dirname + `\\..\\public\\${nameFile[4]}`);
+        if(nameFile[4] !== 'defaultuser.jpg'){
+            await fs.unlinkSync(__dirname + `\\..\\..\\public\\${nameFile[4]}`);   
+        }
         next();
     } catch (error) {
         res.json({ response : 'error'})

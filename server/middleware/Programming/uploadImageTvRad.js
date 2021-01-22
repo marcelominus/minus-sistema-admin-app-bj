@@ -9,10 +9,11 @@ module.exports = function (req, res, next) {
     const configuracionMulter = {
         storage : fileStorage = multer.diskStorage({
             destination: (req, file, cb) => {
-                cb(null, __dirname + '\\..\\public');
+                cb(null, __dirname + '\\..\\..\\public\\imgProgramming');
             },
             filename : (req, file, cb) => {
                 const extension = file.mimetype.split('/')[1];
+                
                 const nombreImg = `${shortid.generate()}.${extension}`;
                 cb(null, nombreImg);
             }
@@ -25,9 +26,10 @@ module.exports = function (req, res, next) {
             }
         }
     }
-    const uploadFile = multer(configuracionMulter).single('imagen');
+    const uploadFile = multer(configuracionMulter).single('imagentvrad');
     uploadFile(req, res, function(error){
         if(error){
+            console.log(error)
             res.json({ response : 'error'})
         }else{            
             next();
@@ -35,6 +37,7 @@ module.exports = function (req, res, next) {
     })
     
   } catch (error) {
+      console.log(error)
     return res.status(401).json({ msg: "Token no valido" });
   }
 };

@@ -24,7 +24,7 @@ const ImgTvRad = db.define(
         tipo : {
             type : Sequelize.STRING
         },
-        idredes : {
+        paginaid : {
             type : Sequelize.STRING
         }
     }, {

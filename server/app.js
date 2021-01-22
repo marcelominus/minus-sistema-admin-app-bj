@@ -11,7 +11,7 @@ const cors = require('cors');
 //Importamos las RUTAS
 const loginRoute = require('./routes/loginRoute');
 const networkRoute = require('./routes/networkRoute');
-
+const imgtvradioRoute = require('./routes/imgtvradioRoute');
 
 var multer = require('multer');
 var forms = multer();
@@ -26,9 +26,11 @@ app.use(bodyparser.urlencoded({ extended : true}));
 app.use(cors());
 //
 app.use("/state", express.static("public"));
+
 //Creamos la direccion de imagen
 app.use( '/' , loginRoute());
 app.use('/network', networkRoute());
+app.use('/imgtvrad', imgtvradioRoute());
 //Exportamos el MODULO DE APP
 module.exports = app;
 

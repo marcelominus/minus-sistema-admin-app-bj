@@ -4,6 +4,9 @@ const Sequelize = require('sequelize');
 const db = require('../config/db/dbMysql');
 //Importamos las variables de entorno
 require('dotenv').config({ path : '../const.env'});
+const NOMBRE_DEFAULT_LOGIN = process.env.NOMBRE_DEFAULT_LOGIN;
+const USUARIO_DEFAULT_LOGIN= process.env.USUARIO_DEFAULT_LOGIN;
+const PASS_DEFAULT_LOGIN = process.env.PASS_DEFAULT_LOGIN;
 //Importamos las constantes
 const constantes = require('../service/constants');
 
@@ -18,15 +21,15 @@ const Login = db.define(
         },
         nombre : {
             type : Sequelize.STRING,
-            defaultValue : 'MARSLNLAU'
+            defaultValue : NOMBRE_DEFAULT_LOGIN
         },
         usuario : {
             type : Sequelize.STRING,
-            defaultValue : 'admin'
+            defaultValue : USUARIO_DEFAULT_LOGIN
         },
         password : {
             type : Sequelize.STRING,
-            defaultValue : '16112905'
+            defaultValue : PASS_DEFAULT_LOGIN
         },
         avatar : {
             type : Sequelize.STRING,

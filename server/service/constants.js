@@ -13,3 +13,5 @@ const direccion_basica = `http://${IP_SERVER}:${PORT_SERVER}`;
 module.exports.avatarDefault    = `${direccion_basica}/state/defaultuser.jpg`;
 /** DIRECCION DE  imagen de AVATAR CAMBIADO */
 module.exports.avatarNew        = `${direccion_basica}/state/`;
+/** DIRECCION DE  imagen de TIPO RADIO O TV*/
+module.exports.imgTvRadNew      = `${direccion_basica}/state/imgProgramming/`;
