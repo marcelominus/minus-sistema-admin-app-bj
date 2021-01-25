@@ -1,0 +1,7 @@
+yarn add react-materialize
+yarn add node-sass
+yarn add axios
+yarn add react-router-dom
+yarn add sweetalert2-react-content
+yarn add framer-motion
+yarn add wowjs

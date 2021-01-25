@@ -15,3 +15,5 @@ module.exports.avatarDefault    = `${direccion_basica}/state/defaultuser.jpg`;
 module.exports.avatarNew        = `${direccion_basica}/state/`;
 /** DIRECCION DE  imagen de TIPO RADIO O TV*/
 module.exports.imgTvRadNew      = `${direccion_basica}/state/imgProgramming/`;
+/** DIRECCION DE  imagen de TIPO PUBLICIDAD */
+module.exports.advertisingNew   = `${direccion_basica}/state/imgAdvertising/`;

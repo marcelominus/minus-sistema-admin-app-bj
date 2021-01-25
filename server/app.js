@@ -12,6 +12,9 @@ const cors = require('cors');
 const loginRoute = require('./routes/loginRoute');
 const networkRoute = require('./routes/networkRoute');
 const imgtvradioRoute = require('./routes/imgtvradioRoute');
+const advertisingRoute = require('./routes/advertisingRoute');
+const directionRoute  = require('./routes/directionRoute');
+const youtubeRoute = require('./routes/youtubeRoute');
 
 var multer = require('multer');
 var forms = multer();
@@ -31,6 +34,9 @@ app.use("/state", express.static("public"));
 app.use( '/' , loginRoute());
 app.use('/network', networkRoute());
 app.use('/imgtvrad', imgtvradioRoute());
+app.use('/advertising', advertisingRoute());
+app.use('/direction', directionRoute());
+app.use('/youtube', youtubeRoute());
 //Exportamos el MODULO DE APP
 module.exports = app;
 
