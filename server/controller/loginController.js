@@ -26,7 +26,6 @@ exports.loginAdmin = async(req, res) => {
         }else{
             //Ingresamos los dato extraidos en la variable UsuarioAuth y creamos el TOKEN
             const usuarioAuth = loginDate[0].idlogin;
-            console.log(usuarioAuth);
             const tokenAuth = getToken(usuarioAuth);
             if( tokenAuth == false){
                 res.json({ response : 'fail'});

@@ -1,14 +1,20 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useContext } from "react";
 import "../../resource/scss/page/login/Card.scss";
-
+//Importamos USE STATE LOGIN
+import loginContext from '../../hook/login/loginContext';
 //Importamos herramientas de materialize
-import { Row, Col, TextInput } from "react-materialize";
+import { Row, Col } from "react-materialize";
 //
 import M from "materialize-css";
 //----------------------------------------------------------------------------
 const Card = () => {
+  //==================================================
+  //Invocamos los CONTEXT
+  //==================================================
+  const {funcionPeticionLogin} = useContext(loginContext);
+
   //===============================================
-  //
+  //Extraemos la informacion del FORMULARIO
   //===============================================
   const [dataform, setDataForm] = useState({
     user: "",
@@ -33,13 +39,17 @@ const Card = () => {
     if (user.trim() === "" || pass.trim() === "") {
       M.toast({ html: "Formulario Vacio, Revise los Datos" });
     } else {
+      funcionPeticionLogin(dataform);
     }
   };
   //===============================================
-  //
+  //Utilizamos el USE-EFFECT
   //===============================================
   useEffect(() => {}, []);
 
+  //===============================================
+  //INICIO DEL PROGRAMA
+  //===============================================
   return (
     <Fragment>
       <div className="container">

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useContext } from "react";
 import "../../resource/scss/page/login/login.scss";
 
 //Importamos framer motion
@@ -9,7 +9,12 @@ import Loading from "../../components/Loading";
 import Card from "./Card";
 
 //------------------------------------------------------------------------------
-const Login = (props) => {
+const Login = () => {
+  //===============================================
+  //Inicio de USE-CONTEXT
+  //===============================================
+  // const { prueba } = useContext(loginContext);
+
   //===============================================
   //Inicio de USE-STATE variables locales
   //===============================================
