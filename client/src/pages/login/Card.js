@@ -7,7 +7,7 @@ import { Row, Col } from "react-materialize";
 //
 import M from "materialize-css";
 //----------------------------------------------------------------------------
-const Card = () => {
+const Card = ({props}) => {
   //==================================================
   //Invocamos los CONTEXT
   //==================================================
@@ -39,7 +39,18 @@ const Card = () => {
     if (user.trim() === "" || pass.trim() === "") {
       M.toast({ html: "Formulario Vacio, Revise los Datos" });
     } else {
-      funcionPeticionLogin(dataform);
+      funcionPeticionLogin(dataform).then( e => {
+        console.log(e);
+        if( e == 'null'){
+          M.toast({ html: "DATO ERRORENO USUARIO NO ENCONTRADO" });
+        }else if( e == 'fail'){
+          M.toast({ html: "FALLO CATASTROFICO" });
+        }else{
+          M.toast({ html: "CORRECTO" });
+          console.log(props)
+          props.history.push("/start");
+        }
+      });
     }
   };
   //===============================================

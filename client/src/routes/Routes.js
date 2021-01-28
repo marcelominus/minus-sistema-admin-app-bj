@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch, useLocation} from 'react-router-dom';
 //Importamos las paginas
 import Login from '../pages/login/Login';
 import Network from '../pages/network/Network';
+import Start from '../pages/start/Start';
 import Error404 from '../pages/error/Error404';
 
 //
@@ -25,6 +26,11 @@ const Routes = () => {
                 <Route 
                     path='/network'
                     component={Network}
+                    exact={true}
+                />
+                <Route 
+                    path='/start'
+                    component={Start}
                     exact={true}
                 />
                 <Route 

@@ -19,17 +19,24 @@ const LoginState = (props) => {
 
     //
     const funcionPeticionLogin = async(valor) => {
-        const { user, pass} = valor;
-        const urlPeticion = direccion_login_consulta;
-
-        const peticionLogin = await clientAxios.post(urlPeticion,{
-            user : user,
-            pass : pass
-        });
-        const respuestaPeticionLogin = peticionLogin.data;
-        console.log(respuestaPeticionLogin);
-        
-
+        try {
+            const { user, pass} = valor;
+            const urlPeticion = direccion_login_consulta;
+            const peticionLogin = await clientAxios.post(urlPeticion,{
+                user : user,
+                pass : pass
+            });
+            const respuestaPeticionLogin = peticionLogin.data;
+            if(respuestaPeticionLogin.response === 'null'){
+                return 'null';
+            }else if(respuestaPeticionLogin.response === 'fail'){
+                return 'fail';
+            }else{
+                return 'success';
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
     return ( 
         <loginContext.Provider

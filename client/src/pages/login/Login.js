@@ -9,7 +9,7 @@ import Loading from "../../components/Loading";
 import Card from "./Card";
 
 //------------------------------------------------------------------------------
-const Login = () => {
+const Login = (props) => {
   //===============================================
   //Inicio de USE-CONTEXT
   //===============================================
@@ -40,13 +40,16 @@ const Login = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 1,
+        duration: 2,
         ease: [0.87, 0, 0.13, 1],
       },
     },
     out: {
       opacity: 0,
       y: "-100%",
+      transition: {
+        duration: 2,
+      },
     },
   };
 
@@ -64,7 +67,7 @@ const Login = () => {
           variants={pageVariantsLogin}
         >
           <div className="card-login">
-            <Card />
+            <Card props={props}/>
           </div>
         </motion.div>
       ) : (
