@@ -1,14 +1,17 @@
 @import "../../variables";
 header,
 main,
-footer {
+footer,
+a {
+  z-index: 1000 !important ;
   padding-left: 300px;
   background: rgb(217, 198, 219);
 }
 @media only screen and (max-width: 992px) {
   header,
   main,
-  footer {
+  footer,
+  a {
     padding-left: 0;
   }
 }
